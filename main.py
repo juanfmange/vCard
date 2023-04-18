@@ -2,18 +2,18 @@ import qrcode
 
 def main():
     print('Please enter contact details:')
-    first_name   = input(' - First name       : ')
-    last_name    = input(' - Last name        : ')
-    email        = input(' - E-mail address   : ')
-    company      = input(' - Company          : ')
-    title        = input(' - Title            : ')
-    phone_number = input(' - Phone number     : ')
-    address      = input(' - Address          : ')
+    first_name   = input(' - Nombres       : ')
+    last_name    = input(' - Apellidos        : ')
+    email        = input(' - Correo   : ')
+    company      = input(' - Compania          : ')
+    title        = input(' - Titulo            : ')
+    phone_number = input(' - Celular     : ')
+    address      = input(' - Direccion          : ')
     okay()
     vcard = make_vcard(first_name, last_name, company, title, phone_number, address, email)
     print(f'Generated vcard:\n{vcard}\n')
     vcf_file = f'{last_name.lower()}.vcf'
-    print(f'Will be writing vcard to: {vcf_file}')
+    print(f'vCard a escribir: {vcf_file}')
     okay()
     write_vcard(vcard)
     qr(vcard,last_name)
@@ -46,11 +46,11 @@ def write_vcard(vcard):
     return '\n'.join(vcard)
 
 def okay():
-    okay = input('Okay [yes/no]? ')
-    if okay in ['Yes', 'yes', 'YES', 'y', 'Y', 'ok']:
+    okay = input('Okay [si/no]? ')
+    if okay in ['Si', 'si', 'SI', 's', 'S', 'ok']:
         return True
     else:
-        print('Cancelled.')
+        print('Cancelado.')
         exit(1)
 
 
